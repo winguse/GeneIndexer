@@ -23,6 +23,11 @@ And KPI of my solution (when K = 30 on 4 cores machine, you may check the code i
 * maximum K: 400MB is enough for all possible K.
 * time for building index: < 8s (including reading data files, single thread for reading file, and 8 threads for building index).
 
+Command to build it using g++:
+```
+g++ -std=c++0x -m64 -pthread -O2 main.cpp gene_indexer.cpp prime_generator.cpp murmur3.cpp -o main
+```
+
 # Original Chinese Description
 
 ## 2015 年“深圳杯”数学建模夏令营
