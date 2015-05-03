@@ -38,6 +38,8 @@ For hash algorithm, if K is small, just convert it as integer, eg.: K = 10, can 
 
 To save more, the original gene string can be storage as binary, but resulting in a little bit slow.
 
+To speed up indexing, we can use multi-threading. I did not implement lock-free hash table here, instead, I just simply devide the data in to several partitions, one per thread. As using one thread for querying, it should be a little slower, but very tinny impact.
+
 # Original Chinese Description
 
 ## 2015 年“深圳杯”数学建模夏令营
