@@ -1,7 +1,7 @@
 # GeneIndexer
 This is a solution to Problem B of the Summer Camp Math Modeling, 2015 Shenzhen Cup. Solve it for my hobby.
 
-#Problem Description
+##Problem Description
 
 This problem is known as K-mer index problem (the problem description said).
 
@@ -27,6 +27,16 @@ Command to build it using g++:
 ```
 g++ -std=c++0x -m64 -pthread -O2 main.cpp gene_indexer.cpp prime_generator.cpp murmur3.cpp -o main
 ```
+
+## Basis of the solution
+
+This problem is asking for mapping of pattern to position, and pattern is one of the segment in a continous string. So its easy to save memory in hash table by storage only position as value. That is, hash(pattern) => position => original gene string.
+
+Position is a limited set: (pattern_length - K) * gene_count, let 4 byte to storage it is good enough.
+
+For hash algorithm, if K is small, just convert it as integer, eg.: K = 10, can be convert to 0 to 4^10; if K is large, use some hash algorithm, I would choose [murmur3](https://github.com/PeterScott/murmur3).
+
+To save more, the original gene string can be storage as binary, but resulting in a little bit slow.
 
 # Original Chinese Description
 
