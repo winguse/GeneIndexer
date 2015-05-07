@@ -27,12 +27,12 @@ void log(const char *format, ...)
 	clock_t current_time = clock();
 #endif
 	printf(
-	    "%8.3f %8.3f | ",
+		"%8.3f %8.3f | ",
 #if defined (__linux__)
-	    current_time.tv_sec - start_time.tv_sec + (current_time.tv_usec - start_time.tv_usec) / 1e6 ,
-	    current_time.tv_sec - last_time.tv_sec + (current_time.tv_usec - last_time.tv_usec) / 1e6
+		current_time.tv_sec - start_time.tv_sec + (current_time.tv_usec - start_time.tv_usec) / 1e6 ,
+		current_time.tv_sec - last_time.tv_sec + (current_time.tv_usec - last_time.tv_usec) / 1e6
 #else
-	    (current_time - start_time) / (double) CLOCKS_PER_SEC, (current_time - last_time) / (double) CLOCKS_PER_SEC
+		(current_time - start_time) / (double) CLOCKS_PER_SEC, (current_time - last_time) / (double) CLOCKS_PER_SEC
 #endif
 	);
 	va_list args;
@@ -91,7 +91,7 @@ int main()
 	}
 	indexers[thread_count - 1] = new gene_indexer(k, gene_count - gene_per_indexer * (thread_count - 1), gene_length, compress_mode, hash_table_size);
 
-    log("m_hash_table_size = %d\n", indexers[thread_count - 1]->m_hash_table_size);
+	log("m_hash_table_size = %d\n", indexers[thread_count - 1]->m_hash_table_size);
 
 	log("allocate indexer memory\n");
 
